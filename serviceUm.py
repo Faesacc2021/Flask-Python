@@ -1,14 +1,7 @@
-from json import dump
 import json
 from flask import Flask, request
-from flask import jsonify
 from flask_cors import CORS, cross_origin
-from requests import Response
-
-class User(object):
-    def __init__(self, firstName, lastName):
-        self.firstName = firstName
-        self.lastName = lastName
+from LoginUser import LoginUser
 
 app = Flask(__name__)
 CORS(app, support_credentials=True)
@@ -19,9 +12,11 @@ def serviceUm():
     data = json.dumps(request.json)
     data2 = json.loads(data)
     print(data2)
-    user = User(**data2)
-    print(user.firstName)
-    print(user.lastName)
+    loginUser = LoginUser(
+        
+    )
+    print(loginUser.email)
+    print(loginUser )
     return request.json
  
 if __name__ == "__main__":
